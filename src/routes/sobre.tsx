@@ -1,19 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, HeartHandshake, ShieldCheck, Lightbulb } from "lucide-react";
+import { Compass, HeartHandshake, ShieldCheck, Lightbulb, Target, Eye, Star } from "lucide-react";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre a Aur.IA — propósito e valores" },
+      { title: "Sobre a Aur.IA | Iluminando caminhos para um aprendizado inteligente" },
       {
         name: "description",
         content:
-          "Conheça a Aur.IA: startup EdTech multidisciplinar que une educação, dados e design para tornar o aprendizado personalizado acessível.",
+          "A Aur.IA é uma startup de tecnologia educacional (EdTech) que utiliza Inteligência Artificial para tornar o aprendizado mais acessível, prático e personalizado.",
       },
       { property: "og:title", content: "Sobre a Aur.IA" },
       {
         property: "og:description",
-        content: "Propósito, valores e forma de trabalho da startup EdTech criadora do LUMINAUR.",
+        content: "A EdTech que utiliza IA para democratizar o acesso ao conhecimento tecnológico.",
       },
     ],
   }),
@@ -22,24 +22,29 @@ export const Route = createFileRoute("/sobre")({
 
 const values = [
   {
-    icon: Compass,
-    title: "Pedagogia primeiro",
-    text: "Nenhuma tecnologia entra no produto sem uma justificativa pedagógica clara.",
+    icon: Star,
+    title: "Inovação",
+    text: "Buscar novas formas de utilizar tecnologia para melhorar a educação.",
   },
   {
     icon: HeartHandshake,
-    title: "Feito com educadores",
-    text: "Professores participam do desenho, dos testes e da avaliação de cada funcionalidade.",
+    title: "Acessibilidade",
+    text: "Tornar o conhecimento mais acessível a todos.",
   },
   {
     icon: ShieldCheck,
-    title: "Dados com responsabilidade",
-    text: "Privacidade, transparência e uso mínimo de dados como princípios de engenharia.",
+    title: "Ética",
+    text: "Utilizar Inteligência Artificial de maneira responsável e transparente.",
+  },
+  {
+    icon: Compass,
+    title: "Aprendizado",
+    text: "Valorizar a evolução contínua e o desenvolvimento humano.",
   },
   {
     icon: Lightbulb,
-    title: "Simplicidade radical",
-    text: "Se a pessoa precisa de treinamento para usar, o problema é nosso, não dela.",
+    title: "Pessoas",
+    text: "Colocar o estudante no centro de toda a experiência educacional.",
   },
 ];
 
@@ -47,63 +52,80 @@ function SobrePage() {
   return (
     <>
       <section className="border-b border-border aurora-bg">
-        <div className="mx-auto max-w-3xl px-5 py-24">
-          <span className="text-xs tracking-widest text-primary uppercase">Sobre nós</span>
-          <h1 className="mt-4 text-4xl font-bold sm:text-5xl">
-            Aprender bem não deveria depender de sorte
+        <div className="mx-auto max-w-4xl px-5 py-24">
+          <span className="text-xs tracking-widest text-primary font-bold uppercase">Sobre a Aur.IA</span>
+          <h1 className="mt-6 text-4xl font-bold sm:text-5xl leading-tight">
+            Iluminando caminhos para um aprendizado mais inteligente.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
-            A Aur.IA nasceu da constatação de que o acompanhamento individual — aquilo que mais
-            transforma o aprendizado — é justamente o que falta em salas cheias e rotinas apertadas.
-            Construímos tecnologia para devolver esse acompanhamento a estudantes e educadores.
-          </p>
+          <div className="mt-8 space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              A Aur.IA é uma startup de tecnologia educacional (EdTech) que utiliza Inteligência Artificial, tecnologia e metodologias de aprendizagem interativa para tornar o aprendizado mais acessível, prático e personalizado.
+            </p>
+            <p>
+              Acreditamos que aprender tecnologia não precisa ser complicado. Por isso, desenvolvemos soluções que transformam conteúdos complexos em experiências mais simples, interativas e personalizadas.
+            </p>
+            <p>
+              Nosso objetivo é utilizar a tecnologia não para substituir o processo de aprendizagem, mas para torná-lo mais eficiente e acessível a todas as pessoas.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2">
-        <div className="rounded-3xl bg-card p-8 hairline">
-          <h2 className="text-2xl font-semibold">Missão</h2>
-          <p className="mt-3 text-muted-foreground">
-            Tornar a aprendizagem personalizada acessível em qualquer contexto escolar, combinando
-            inteligência artificial, ciência da aprendizagem e design cuidadoso.
+        <div className="rounded-4xl bg-card p-10 hairline flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
+          <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <Target className="h-6 w-6 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold">Nossa Missão</h2>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Democratizar o acesso ao conhecimento tecnológico por meio de experiências educacionais inteligentes, tornando o aprendizado mais acessível, interativo e personalizado.
           </p>
         </div>
-        <div className="rounded-3xl bg-card p-8 hairline">
-          <h2 className="text-2xl font-semibold">Visão</h2>
-          <p className="mt-3 text-muted-foreground">
-            Ser a referência latino-americana em tecnologia educacional que amplia o trabalho do
-            professor em vez de tentar substituí-lo.
+        <div className="rounded-4xl bg-card p-10 hairline flex flex-col items-start gap-4 hover:border-accent/40 transition-colors">
+          <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center">
+            <Eye className="h-6 w-6 text-accent" />
+          </div>
+          <h2 className="text-2xl font-bold">Nossa Visão</h2>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Tornar a Aur.IA uma referência em soluções educacionais baseadas em Inteligência Artificial, contribuindo para formar pessoas mais preparadas para o futuro tecnológico.
           </p>
         </div>
       </section>
 
       <section className="border-y border-border bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-3xl font-semibold">Nossos valores</h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <h2 className="text-3xl font-bold text-center">Nossos Valores</h2>
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((v) => (
-              <article key={v.title} className="rounded-3xl bg-background p-6 hairline">
-                <v.icon className="h-6 w-6 text-accent" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
+              <article key={v.title} className="rounded-3xl bg-background p-8 hairline hover:shadow-glow transition-all">
+                <v.icon className="h-8 w-8 text-primary" aria-hidden="true" />
+                <h3 className="mt-6 text-xl font-bold">{v.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-5 py-20 text-center">
-        <h2 className="text-3xl font-semibold">Uma equipe multidisciplinar</h2>
-        <p className="mt-4 text-muted-foreground">
-          Educação, engenharia, dados, design e negócios trabalhando no mesmo ritmo — é isso que
-          permite ir de uma hipótese pedagógica a uma funcionalidade testada em sala.
+      <section className="mx-auto max-w-4xl px-5 py-24 text-center">
+        <h2 className="text-3xl font-bold">Conheça o time por trás da Aur.IA</h2>
+        <p className="mt-6 text-lg text-muted-foreground">
+          Uma equipe multidisciplinar focada em transformar a educação através da inovação.
         </p>
-        <Link
-          to="/equipe"
-          className="mt-8 inline-flex rounded-full border border-border px-7 py-3 text-sm font-semibold hover:bg-secondary"
-        >
-          Conhecer a equipe
-        </Link>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Link
+            to="/equipe"
+            className="rounded-full bg-primary px-8 py-4 text-sm font-bold text-primary-foreground shadow-glow hover:opacity-90 transition-opacity"
+          >
+            Ver nossa equipe
+          </Link>
+          <Link
+            to="/contato"
+            className="rounded-full border border-border px-8 py-4 text-sm font-bold hover:bg-secondary transition-colors"
+          >
+            Entre em contato
+          </Link>
+        </div>
       </section>
     </>
   );
