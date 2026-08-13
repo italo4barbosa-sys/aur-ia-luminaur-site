@@ -43,7 +43,7 @@ function EquipePage() {
       try {
         const { data, error } = await supabase
           .from("equipe")
-          .select("id, nome, cargo, area")
+          .select("id, nome, cargo, area, descricao")
           .eq("ativo", true)
           .order("ordem", { ascending: true });
 
@@ -94,16 +94,20 @@ function EquipePage() {
                   {equipe
                     .filter((m) => m.area === area)
                     .map((m) => (
-                      <article key={m.id} className="rounded-3xl bg-card p-8 hairline hover:border-primary/40 transition-colors">
-                        <div className="flex flex-col gap-1">
-                          <h3 className="text-xl font-bold">{m.nome}</h3>
-                          {m.cargo && <p className="text-sm font-semibold text-accent">{m.cargo}</p>}
+                      <article key={m.id} className="rounded-3xl bg-card p-8 hairline hover:border-primary/40 transition-colors flex flex-col justify-between">
+                        <div>
+                          <div className="flex flex-col gap-1">
+                            <h3 className="text-xl font-bold">{m.nome}</h3>
+                            {m.cargo && <p className="text-sm font-semibold text-accent">{m.cargo}</p>}
+                          </div>
+                          {m.descricao && (
+                            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                              {m.descricao}
+                            </p>
+                          )}
                         </div>
-                        <p className="mt-4 text-xs text-muted-foreground uppercase tracking-widest">
-                          {m.area === "GESTÃO" ? "Organização e Acompanhamento" : 
-                           m.area === "PESQUISA" ? "Levantamento de Informações" :
-                           m.area === "ADMINISTRATIVO E REDES SOCIAIS" ? "Comunicação e Adm" :
-                           "Desenvolvimento Técnico"}
+                        <p className="mt-6 text-[10px] font-bold text-primary uppercase tracking-[0.2em]">
+                          {m.area}
                         </p>
                       </article>
                     ))}
