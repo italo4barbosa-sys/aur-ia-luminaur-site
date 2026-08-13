@@ -5,9 +5,9 @@ import { Logo } from "./logo";
 
 const links = [
   { to: "/", label: "Início" },
+  { to: "/sobre", label: "Sobre a Aur.IA" },
   { to: "/luminaur", label: "LUMINAUR" },
-  { to: "/sobre", label: "Sobre" },
-  { to: "/equipe", label: "Equipe" },
+  { to: "/equipe", label: "Nossa Equipe" },
   { to: "/contato", label: "Contato" },
 ] as const;
 

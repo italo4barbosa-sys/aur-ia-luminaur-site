@@ -1,99 +1,125 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/equipe")({
   head: () => ({
     meta: [
-      { title: "Equipe Aur.IA — time multidisciplinar" },
+      { title: "Nossa Equipe | Aur.IA" },
       {
         name: "description",
-        content:
-          "A equipe da Aur.IA reúne educação, engenharia, dados, design e negócios para construir o LUMINAUR.",
-      },
-      { property: "og:title", content: "Equipe Aur.IA" },
-      {
-        property: "og:description",
-        content: "Conheça as áreas que formam o time multidisciplinar da Aur.IA.",
+        content: "Conheça as pessoas por trás da Aur.IA, a startup de EdTech que está transformando o aprendizado.",
       },
     ],
   }),
   component: EquipePage,
 });
 
-const areas = [
-  {
-    area: "Educação e currículo",
-    initials: "EC",
-    text: "Desenha as trilhas, os critérios de domínio e a linguagem dos feedbacks do LUMINAUR.",
-  },
-  {
-    area: "Engenharia de software",
-    initials: "ES",
-    text: "Constrói o aplicativo, a infraestrutura e as integrações com sistemas escolares.",
-  },
-  {
-    area: "Ciência de dados e IA",
-    initials: "IA",
-    text: "Modela a adaptação das trilhas, avalia qualidade das respostas e mede impacto real.",
-  },
-  {
-    area: "Produto e design",
-    initials: "PD",
-    text: "Traduz pesquisa com estudantes e professores em interfaces simples e acessíveis.",
-  },
-  {
-    area: "Pesquisa e avaliação",
-    initials: "PA",
-    text: "Acompanha pilotos, define indicadores e valida hipóteses pedagógicas com evidências.",
-  },
-  {
-    area: "Parcerias e operações",
-    initials: "PO",
-    text: "Cuida do relacionamento com escolas, implantação e formação das equipes docentes.",
-  },
+type Membro = {
+  id: string;
+  nome: string;
+  cargo: string | null;
+  area: string;
+};
+
+const defaultEquipe: Membro[] = [
+  { id: "1", nome: "Kizan Nóbrega", cargo: "Gerente de Projetos", area: "GESTÃO" },
+  { id: "2", nome: "Igor", cargo: "Pesquisador", area: "PESQUISA" },
+  { id: "3", nome: "Júlio César", cargo: "Pesquisador", area: "PESQUISA" },
+  { id: "4", nome: "Aurea", cargo: "Administrativo e Redes Sociais", area: "ADMINISTRATIVO E REDES SOCIAIS" },
+  { id: "5", nome: "Jesumira", cargo: "Administrativo e Redes Sociais", area: "ADMINISTRATIVO E REDES SOCIAIS" },
+  { id: "6", nome: "Anny", cargo: "Administrativo e Redes Sociais", area: "ADMINISTRATIVO E REDES SOCIAIS" },
+  { id: "7", nome: "Junior", cargo: "Desenvolvimento", area: "DESENVOLVIMENTO" },
+  { id: "8", nome: "Kaleb", cargo: "Desenvolvimento", area: "DESENVOLVIMENTO" },
+  { id: "9", nome: "Italo", cargo: "Desenvolvimento", area: "DESENVOLVIMENTO" },
 ];
 
 function EquipePage() {
+  const [equipe, setEquipe] = useState<Membro[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEquipe = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("equipe")
+          .select("id, nome, cargo, area")
+          .eq("ativo", true)
+          .order("ordem", { ascending: true });
+
+        if (error) throw error;
+        setEquipe(data.length > 0 ? data : defaultEquipe);
+      } catch (err) {
+        console.error("Erro ao buscar equipe:", err);
+        setEquipe(defaultEquipe);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEquipe();
+  }, []);
+
+  const areas = [...new Set(equipe.map((m) => m.area))];
+
   return (
     <>
       <section className="border-b border-border">
-        <div className="mx-auto max-w-3xl px-5 py-24">
-          <span className="text-xs tracking-widest text-primary uppercase">Equipe</span>
-          <h1 className="mt-4 text-4xl font-bold sm:text-5xl">
-            Pessoas de áreas diferentes, um mesmo objetivo
+        <div className="mx-auto max-w-4xl px-5 py-24">
+          <span className="text-xs tracking-widest text-primary font-bold uppercase">Nossa Equipe</span>
+          <h1 className="mt-6 text-4xl font-bold sm:text-5xl">
+            Pessoas reais construindo o futuro do aprendizado.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
-            A Aur.IA é formada por um time multidisciplinar. Cada decisão de produto passa por olhares
-            pedagógicos, técnicos e humanos antes de chegar ao estudante.
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            A Aur.IA é formada por um time multidisciplinar focado em criar soluções que aproximam as pessoas do conhecimento tecnológico.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {areas.map((a) => (
-            <article key={a.area} className="rounded-3xl bg-card p-6 hairline">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary font-display text-sm font-semibold text-primary">
-                {a.initials}
+        {loading ? (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="h-40 rounded-3xl bg-surface animate-pulse" />
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-20">
+            {areas.map((area) => (
+              <div key={area}>
+                <h2 className="text-xl font-bold text-primary mb-8 border-b border-primary/20 pb-2 inline-block">
+                  {area}
+                </h2>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {equipe
+                    .filter((m) => m.area === area)
+                    .map((m) => (
+                      <article key={m.id} className="rounded-3xl bg-card p-8 hairline hover:border-primary/40 transition-colors">
+                        <div className="flex flex-col gap-1">
+                          <h3 className="text-xl font-bold">{m.nome}</h3>
+                          {m.cargo && <p className="text-sm font-semibold text-accent">{m.cargo}</p>}
+                        </div>
+                        <p className="mt-4 text-xs text-muted-foreground uppercase tracking-widest">
+                          {m.area === "GESTÃO" ? "Organização e Acompanhamento" : 
+                           m.area === "PESQUISA" ? "Levantamento de Informações" :
+                           m.area === "ADMINISTRATIVO E REDES SOCIAIS" ? "Comunicação e Adm" :
+                           "Desenvolvimento Técnico"}
+                        </p>
+                      </article>
+                    ))}
+                </div>
               </div>
-              <h2 className="mt-4 text-lg font-semibold">{a.area}</h2>
-              <p className="mt-2 text-sm text-muted-foreground">{a.text}</p>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
-      <section className="border-t border-border bg-surface">
+      <section className="bg-surface border-t border-border">
         <div className="mx-auto max-w-3xl px-5 py-20 text-center">
-          <h2 className="text-3xl font-semibold">Quer construir com a gente?</h2>
-          <p className="mt-4 text-muted-foreground">
-            Estamos sempre abertos a conversar com profissionais de educação, tecnologia e pesquisa.
+          <p className="text-sm text-muted-foreground italic">
+            Não inventar biografias, experiências profissionais ou outras informações pessoais dos integrantes. 
+            Utilizar somente os nomes e funções fornecidos.
           </p>
-          <Link
-            to="/contato"
-            className="mt-8 inline-flex rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow"
-          >
-            Enviar mensagem
-          </Link>
         </div>
       </section>
     </>
