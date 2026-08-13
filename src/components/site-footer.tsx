@@ -41,7 +41,7 @@ export function SiteFooter() {
           <div className="space-y-6">
             <h3 className="font-bold uppercase tracking-widest text-xs text-primary">Redes Sociais</h3>
             <nav className="flex flex-col gap-3 text-sm">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/aur.iabr?igsh=MXFkcTEwNG51a3hyMA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Instagram</a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
             </nav>
           </div>
