@@ -1,14 +1,20 @@
-# Welcome to your Lovable project
+# Aur.IA LUMINAUR Portal
+
+Crie o site institucional completo, moderno, profissional e responsivo da startup Aur.IA.
+
+O projeto representa uma startup de tecnologia educacional (EdTech) formada por uma equipe multidisciplinar e tem como principal produto o aplicativo LUMINAUR.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://aur-ia-luminaur-site.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9632cbc9-154c-4887-9baf-0caac1fef371).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +26,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
