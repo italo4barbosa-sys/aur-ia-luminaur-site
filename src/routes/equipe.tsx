@@ -120,13 +120,13 @@ function EquipePage() {
   return (
     <>
       <section className="border-b border-border">
-        <div className="mx-auto max-w-4xl px-5 py-24 text-center">
-          <span className="text-xs tracking-widest text-primary font-bold uppercase">Nossa Equipe</span>
-          <h1 className="mt-6 text-4xl font-bold sm:text-5xl">
-            Apresentar a equipe da Aur.IA organizada por áreas.
+        <div className="mx-auto max-w-4xl px-5 py-16 sm:py-24 text-center">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Nossa Equipe</span>
+          <h1 className="mt-6 text-4xl font-bold sm:text-6xl tracking-tight leading-[1.1]">
+            A equipe da <span className="text-gradient">Aur.IA</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Conheça as pessoas reais construindo o futuro do aprendizado.
+          <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Organizada por áreas, unindo especialistas dedicados a transformar a educação através da inovação.
           </p>
         </div>
       </section>

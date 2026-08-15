@@ -52,12 +52,12 @@ function SobrePage() {
   return (
     <>
       <section className="border-b border-border aurora-bg">
-        <div className="mx-auto max-w-4xl px-5 py-24">
-          <span className="text-xs tracking-widest text-primary font-bold uppercase">Sobre a Aur.IA</span>
-          <h1 className="mt-6 text-4xl font-bold sm:text-5xl leading-tight">
-            Iluminando caminhos para um aprendizado mais inteligente.
+        <div className="mx-auto max-w-4xl px-5 py-16 sm:py-24 text-center sm:text-left">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Sobre a Aur.IA</span>
+          <h1 className="mt-6 text-4xl font-bold sm:text-6xl leading-[1.1] tracking-tight">
+            Iluminando caminhos para um aprendizado <span className="text-gradient">mais inteligente</span>.
           </h1>
-          <div className="mt-8 space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <div className="mt-10 space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed mx-auto sm:mx-0 max-w-2xl">
             <p>
               A Aur.IA é uma startup de tecnologia educacional (EdTech) que utiliza Inteligência Artificial, tecnologia e metodologias de aprendizagem interativa para tornar o aprendizado mais acessível, prático e personalizado.
             </p>

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Sparkles, Route as RouteIcon, MessageSquareText, BarChart3, Users, Layout, Database, Cloud, Tablet, ShieldCheck, Zap } from "lucide-react";
-import appShot from "../assets/luminaur-app.jpg";
+import { Sparkles, Route as RouteIcon, MessageSquareText, BarChart3, Users, Layout, Database, Cloud, Tablet, ShieldCheck, Zap, Laptop, Smartphone } from "lucide-react";
 
 export const Route = createFileRoute("/luminaur")({
   head: () => ({
@@ -71,35 +70,46 @@ const techStacks = [
 function LuminaurPage() {
   return (
     <>
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-2">
-          <div>
-            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs tracking-wider text-primary font-bold uppercase">
+      <section className="border-b border-border bg-gradient-to-b from-background to-surface/30">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-2 lg:py-24">
+          <div className="text-center lg:text-left">
+            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
               Principal Produto
             </span>
-            <h1 className="mt-5 text-4xl font-bold sm:text-6xl">LUMINAUR</h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <h1 className="mt-5 text-5xl font-bold sm:text-7xl lg:text-8xl tracking-tight">LUMINAUR</h1>
+            <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
               O LUMINAUR é a plataforma educacional inteligente da Aur.IA. Uma experiência de aprendizagem moderna baseada em trilhas, desafios, quizzes, progresso e Inteligência Artificial.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Link
                 to="/contato"
-                className="rounded-full bg-primary px-8 py-4 text-sm font-bold text-primary-foreground shadow-glow hover:opacity-90 transition-opacity"
+                className="rounded-full bg-primary px-10 py-4 text-sm font-bold text-primary-foreground shadow-glow hover:scale-105 active:scale-95 transition-transform"
               >
                 Conhecer o projeto
               </Link>
-              <span className="rounded-full border border-border px-8 py-4 text-sm font-bold text-muted-foreground bg-secondary/50">
+              <span className="inline-flex items-center justify-center rounded-full border border-border px-10 py-4 text-sm font-bold text-muted-foreground bg-secondary/30 backdrop-blur-sm">
                 Em breve
               </span>
             </div>
           </div>
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-4xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-            <img
-              src={appShot}
-              alt="Plataforma LUMINAUR"
-              className="relative rounded-4xl shadow-soft w-full h-auto"
-            />
+          <div className="relative w-full max-w-[420px] mx-auto lg:max-w-none">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-4xl blur-2xl opacity-20"></div>
+            <div className="relative rounded-4xl border border-white/10 bg-card p-4 shadow-2xl aspect-[9/16] lg:aspect-auto lg:min-h-[500px] flex items-center justify-center overflow-hidden group">
+               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 group-hover:opacity-60 transition-opacity" />
+               <div className="z-10 flex flex-col items-center gap-6">
+                 <Smartphone className="h-24 w-24 text-primary animate-bounce-slow" />
+                 <div className="text-center">
+                    <p className="font-display font-bold text-xl mb-2">Interface Mobile-First</p>
+                    <div className="flex justify-center gap-2">
+                      {[1, 2, 3].map(i => <div key={i} className="h-1.5 w-8 bg-white/20 rounded-full" />)}
+                    </div>
+                 </div>
+               </div>
+               <div className="absolute bottom-10 left-6 right-6 space-y-3">
+                  <div className="h-10 w-full bg-white/5 rounded-xl border border-white/5" />
+                  <div className="h-10 w-full bg-white/5 rounded-xl border border-white/5" />
+               </div>
+            </div>
           </div>
         </div>
       </section>

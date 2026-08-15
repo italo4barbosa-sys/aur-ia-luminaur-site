@@ -47,12 +47,12 @@ function ContatoPage() {
   };
 
   return (
-    <section className="mx-auto grid max-w-6xl gap-16 px-5 py-20 lg:grid-cols-[1fr_1.1fr] items-start">
-      <div className="space-y-8">
+    <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] items-start">
+      <div className="space-y-8 text-center sm:text-left">
         <div>
-          <span className="text-xs tracking-widest text-primary font-bold uppercase">Contato</span>
-          <h1 className="mt-4 text-4xl font-bold sm:text-5xl leading-tight">Fale com a Aur.IA</h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Contato</span>
+          <h1 className="mt-4 text-4xl font-bold sm:text-6xl tracking-tight leading-[1.1]">Fale com a <span className="text-gradient">Aur.IA</span></h1>
+          <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto sm:mx-0">
             Tem alguma dúvida, sugestão ou interesse em nossa tecnologia? Preencha o formulário e nossa equipe retornará o mais rápido possível.
           </p>
         </div>
@@ -68,7 +68,7 @@ function ContatoPage() {
             </div>
           </a>
           
-          <a href="https://www.instagram.com/aur.iabr?igsh=MXFkcTEwNG51a3hyMA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+          <a href="https://www.instagram.com/aur.iabr?igsh" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
             <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
               <Instagram className="h-6 w-6 text-accent" />
             </div>
