@@ -68,7 +68,7 @@ function ContatoPage() {
             </div>
           </a>
           
-          <a href="https://www.instagram.com/aur.iabr?igsh=MXFkcTEwNG51a3hyMA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+          <a href="https://www.instagram.com/aur.iabr?igsh" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
             <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
               <Instagram className="h-6 w-6 text-accent" />
             </div>

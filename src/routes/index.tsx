@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Brain, Lightbulb, Sparkles, GraduationCap } from "lucide-react";
-import hero from "../assets/hero-aurora.jpg";
+import { ArrowRight, Brain, Lightbulb, Sparkles, GraduationCap, Instagram as InstagramIcon } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,41 +26,44 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border aurora-bg">
-        <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28">
-          <div>
-            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs tracking-widest text-primary uppercase">
+      <section className="relative overflow-hidden border-b border-border aurora-bg min-h-[80vh] flex items-center">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-12 lg:grid-cols-[1.2fr_1fr] lg:py-24">
+          <div className="z-10 text-center lg:text-left">
+            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
               Startup EdTech
             </span>
-            <h1 className="mt-6 text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl leading-[1.1] font-bold sm:text-5xl lg:text-7xl">
               Inteligência que <span className="text-gradient">transforma</span> o aprendizado.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-6 mx-auto lg:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
               Na Aur.IA, unimos educação, tecnologia e Inteligência Artificial para criar experiências de
               aprendizagem mais inteligentes, acessíveis e personalizadas.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Link
                 to="/sobre"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-primary-foreground shadow-glow hover:scale-105 active:scale-95 transition-transform"
               >
                 Conheça a Aur.IA <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/luminaur"
-                className="rounded-full border border-border px-6 py-3 text-sm font-semibold hover:bg-secondary"
+                className="inline-flex items-center justify-center rounded-full border border-border bg-background/50 backdrop-blur-sm px-8 py-4 text-sm font-bold hover:bg-secondary transition-colors"
               >
                 Conheça o LUMINAUR
               </Link>
             </div>
           </div>
-          <div className="relative rounded-4xl bg-surface p-1 shadow-soft">
-            <div className="absolute -inset-4 rounded-4xl bg-gradient-to-tr from-primary/20 to-accent/20 blur-2xl" />
-            <img
-              src={hero}
-              alt="Conceito de Inteligência Artificial e Educação"
-              className="relative rounded-3xl w-full h-auto"
-            />
+          <div className="relative aspect-square sm:aspect-video lg:aspect-square w-full max-w-[500px] mx-auto">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/30 to-accent/30 blur-3xl animate-pulse" />
+            <div className="relative h-full w-full rounded-3xl border border-white/10 bg-surface/50 backdrop-blur-xl p-8 flex items-center justify-center overflow-hidden">
+               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" />
+               <Brain className="h-32 w-32 text-primary drop-shadow-[0_0_30px_rgba(var(--primary),0.5)]" />
+               <div className="absolute bottom-8 left-8 right-8 p-4 rounded-2xl bg-background/40 border border-white/5 backdrop-blur-md">
+                  <div className="h-2 w-24 bg-primary/40 rounded-full mb-2" />
+                  <div className="h-2 w-16 bg-accent/40 rounded-full" />
+               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -158,7 +160,7 @@ function Index() {
               Acompanhe nossa jornada, novidades e conteúdos exclusivos sobre educação e IA diretamente no nosso perfil oficial.
             </p>
             <a 
-              href="https://www.instagram.com/aur.iabr?igsh=MXFkcTEwNG51a3hyMA%3D%3D&utm_source=qr" 
+              href="https://www.instagram.com/aur.iabr?igsh" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] px-8 py-4 text-sm font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
