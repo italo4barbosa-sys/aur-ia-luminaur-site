@@ -132,7 +132,7 @@ function Index() {
             { n: "04", t: "Evolua", d: "IA acompanha o progresso e sugere melhorias contínuas." },
           ].map((s) => (
             <div key={s.n} className="relative rounded-3xl p-8 bg-card hairline group hover:bg-surface transition-all">
-              <span className="absolute -top-6 left-8 text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">{s.n}</span>
+              <span className="absolute -top-6 left-8 text-7xl font-black text-primary/20 group-hover:text-primary/40 transition-colors drop-shadow-[0_0_15px_rgba(var(--primary),0.3)]">{s.n}</span>
               <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
             </div>
